@@ -1,0 +1,23 @@
+A7 Colecciones: lista de ejercicios (final)
+
+1. Haga un programa que lea una secuencia de caracteres y la muestre en orden inverso. Utilice una pila.
+   (Deque<Character> con implementación LinkedList).
+
+
+2. Haga un programa que lea una secuencia de caracteres y determine si sus paréntesis, corchetes y llaves están bien balanceados.
+
+   Pista: los delimitadores de la izquierda haga push en la pila; los delimitadores de la derecha haga pop y compruebe si el
+   delimitador obtenido se corresponde con el delimitador esperado.
+
+
+
+
+
+
+/**
+ * Push es poner
+ * pop es quitar
+ */
+
+
+
