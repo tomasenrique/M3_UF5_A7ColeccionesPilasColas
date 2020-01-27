@@ -9,8 +9,9 @@ A7 Colecciones: lista de ejercicios (final)
    Pista: los delimitadores de la izquierda haga push en la pila; los delimitadores de la derecha haga pop y compruebe si el
    delimitador obtenido se corresponde con el delimitador esperado.
 
-
-
+    {cadena con llaves}
+    (cadena con parentesis)
+    [cadena con corchetes]
 
 
 
