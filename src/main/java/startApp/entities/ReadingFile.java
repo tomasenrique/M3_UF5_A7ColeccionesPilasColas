@@ -9,12 +9,13 @@ public class ReadingFile {
 
     private File file;
     private String content;
-    private HashMap<String, Integer> listContent; // para almacenar las palabras
+    private TreeMap<String, Integer> listContent; // para almacenar las palabras
+
 
     // Builders
     public ReadingFile() {
         this.content = "";
-        listContent = new HashMap<>();
+        listContent = new TreeMap<>();
     }
 
     // Setter and Getter
@@ -26,13 +27,6 @@ public class ReadingFile {
         this.content = content;
     }
 
-    public HashMap<String, Integer> getListContent() {
-        return listContent;
-    }
-
-    public void setListContent(HashMap<String, Integer> listContent) {
-        this.listContent = listContent;
-    }
 
     // Methods
     public String readingContent(File file) { // lectura de archivo de texto
@@ -59,8 +53,15 @@ public class ReadingFile {
         return this.content = contentAux.toString();
     }
 
+    // Llama a los metodos privados  deletingSemicolons y countWords
+    public void countingOrdering(String text) {
+        String contenido = deletingSemicolons(text);
+        countWords(contenido);
+    }
+
+
     // limpiara el texto de puntos y comas(simbolos)
-    public String deletingSemicolons(String text) {
+    private String deletingSemicolons(String text) {
         String all = "";
         all = text.replaceAll("[.,;]", ""); // eliminara los simbolos del texto
         all = all.replaceAll("\n", " "); // reemplazara los saltos de lineas por espacios
@@ -68,7 +69,7 @@ public class ReadingFile {
     }
 
     // contara las palabras y las guarda en la lista
-    public void countWords(String string) {
+    private void countWords(String string) {
         String[] array = string.split(" ");
         for (String s : array) {
             if (!listContent.containsKey(s)) { // verifica si la palabra ya esta en la lista
@@ -82,9 +83,6 @@ public class ReadingFile {
             System.out.println("Clave: " + s.getKey() + " - Valor: " + s.getValue());
         }
     }
-
-
-
 
 
 }

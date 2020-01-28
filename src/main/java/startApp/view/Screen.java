@@ -57,22 +57,12 @@ public class Screen {
                     readingFile.readingContent(new File("texto.txt")); // se pasa el archivo de texto a leer
                     String contenido = readingFile.getContent();
 
-                    System.out.println("CONTENIDO DEL ARCHIVO");
+                    System.out.println("LEYENDO CONTENIDO DEL ARCHIVO");
                     System.out.println(contenido);
 
                     System.out.println("---------------------------------------------------");
-                    System.out.println("CONTENIDO DEL ARCHIVO LIMPIO");
-                    String contenidoLimpio = readingFile.deletingSemicolons(contenido);
-                    System.out.println(contenidoLimpio);
-
-                    System.out.println("---------------------------------------------------");
-                    System.out.println("CONTANDO PALABRAS");
-                    readingFile.countWords(contenidoLimpio);
-
-                    System.out.println("---------------------------------------------------");
-                    System.out.println("ORDENANDO LAS PALABRAS");
-
-
+                    System.out.println("CONTANDO Y ORDENANDO PALABRAS");
+                    readingFile.countingOrdering(contenido);
                     break;
 
                 default:
