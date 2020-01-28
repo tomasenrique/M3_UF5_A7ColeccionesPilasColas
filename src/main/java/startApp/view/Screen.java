@@ -1,23 +1,28 @@
 package startApp.view;
 
 import startApp.entities.ContainerDeque;
+import startApp.entities.ReadingFile;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Screen {
 
     private final static int STRING_INVERTED = 1;
     private final static int BALANCED_PUNCTUATION = 2;
+    private final static int COUNT_ORDERED = 3;
 
 
     private final static int EXIT = 0;
     private final static Scanner read = new Scanner(System.in); // para la lectura de las opciones
 
     private ContainerDeque container;
+    private ReadingFile readingFile;
 
     // Builder
     public Screen() {
         container = new ContainerDeque();
+        readingFile = new ReadingFile();
     }
 
     /**
@@ -48,6 +53,27 @@ public class Screen {
                     else System.out.println("Los signos no estan balanceados.");
                     break;
 
+                case COUNT_ORDERED:
+                    readingFile.readingContent(new File("texto.txt")); // se pasa el archivo de texto a leer
+                    String contenido = readingFile.getContent();
+
+                    System.out.println("CONTENIDO DEL ARCHIVO");
+                    System.out.println(contenido);
+
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("CONTENIDO DEL ARCHIVO LIMPIO");
+                    String contenidoLimpio = readingFile.deletingSemicolons(contenido);
+                    System.out.println(contenidoLimpio);
+
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("CONTANDO PALABRAS");
+                    readingFile.countWords(contenidoLimpio);
+
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("ORDENANDO LAS PALABRAS");
+
+
+                    break;
 
                 default:
                     System.out.println("Opcion incorrecta");
@@ -64,6 +90,7 @@ public class Screen {
         System.out.println("\n\nMENU PRINCIPAL");
         System.out.println("1. Invertir cadena.");
         System.out.println("2. Comprobar signos de puntuacioon balanceados.");
+        System.out.println("3. Conteo de palabras y ordenado por clave.");
 
 
         System.out.println("0. Salir");
