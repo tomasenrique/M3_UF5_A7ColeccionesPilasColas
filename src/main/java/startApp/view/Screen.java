@@ -96,11 +96,22 @@ public class Screen {
                     photography.randomClicks(juan);
                     photography.randomClicks(maria);
                     // se obtiene las fotos que les gusta a ambos usuarios
-                    ArrayList<Integer>lista = photography.showComparedPhotos(juan, maria);
+                    ArrayList<Integer>lista = photography.comparedPhotos(juan, maria);
                     System.out.print("A Maria y a Juan les gustas las siguentes fotos :" + lista);
                     break;
 
                 case PHOTOS_LIKES:
+                    // Se obtiene las listas
+                    juan = photography.getPhotosJuan();
+                    maria = photography.getPhotosMaria();
+                    // Se realiza clicks aleatoriamente
+                    photography.randomClicks(juan);
+                    photography.randomClicks(maria);
+
+
+                    photography.comparedPhotography(juan, maria);
+
+
                     break;
 
                 case COUNT_ORDERED:

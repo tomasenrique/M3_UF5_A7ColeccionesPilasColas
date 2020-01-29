@@ -2,6 +2,7 @@ package startApp.entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 import static startApp.methodsAux.Methods.numeroAleatorio;
 
@@ -94,7 +95,7 @@ public class Photography {
      * @param lista2 Sera una la segunda lista Key:Value a comparar
      * @return Devolvera una lista de tipo enteros con las claves de fotos que son iguales
      */
-    public ArrayList<Integer> showComparedPhotos(HashMap<Integer, Boolean> lista1, HashMap<Integer, Boolean> lista2) {
+    public ArrayList<Integer> comparedPhotos(HashMap<Integer, Boolean> lista1, HashMap<Integer, Boolean> lista2) {
         ArrayList<Integer> fotos = new ArrayList<>();
         int index = 0; // sera un indice para una de las listas a comparar
         for (HashMap.Entry<Integer, Boolean> entry1 : lista1.entrySet()) {
@@ -106,6 +107,32 @@ public class Photography {
             }
         }
         return fotos;
+    }
+
+
+    /**
+     * Este metodo mostrara las fotos que le gustan a maria pero no a juan
+     *
+     * @param lista1 Sera una la primera lista Key:Value a comparar y devolvera con valores true
+     * @param lista2 Sera una la segunda lista Key:Value a comparar y devolvera con valores false
+     */
+    public void comparedPhotography(HashMap<Integer, Boolean> lista1, HashMap<Integer, Boolean> lista2) {
+        ArrayList<Integer> fotoslista1 = new ArrayList<>(); // juan
+        ArrayList<Integer> fotoslista2 = new ArrayList<>(); // maria
+        int index = 0; // sera un indice para una de las listas a comparar
+        for (HashMap.Entry<Integer, Boolean> entry1 : lista1.entrySet()) {
+            index++;
+            if (entry1.getValue()) {   //Compara los campos valor de cada lista para saber si son iguales.
+                fotoslista1.add(entry1.getKey());
+            } else if (!lista2.get(index)) {
+                fotoslista2.add(index);
+            }
+        }
+        System.out.print("Las fotos que le gustan a Maria: ");
+        System.out.println(fotoslista1);
+        System.out.println();
+        System.out.print("Las fotos que no le gustan a Juan: ");
+        System.out.println(fotoslista2);
     }
 
 
