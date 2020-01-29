@@ -63,16 +63,11 @@ public class Screen {
                     boolean result;
                     System.out.print("Ingrese la cadena a comprobar: ");
                     result = container.balancedPunctuationSign(read.nextLine());
-                    if (result) System.out.println("Signos de puntuacion balanceados.");
-                    else System.out.println("Los signos no estan balanceados.");
+                    if (result) System.out.println("\tSignos de puntuacion balanceados.");
+                    else System.out.println("\tLos signos no estan balanceados.");
                     break;
 
                 case COUNT_LIKES:
-//                    HashMap<Integer, Boolean> juan = photography.getPhotosJuan();
-//                    HashMap<Integer, Boolean> maria = photography.getPhotosMaria();
-//                    juan = photography.getPhotosJuan();
-//                    maria = photography.getPhotosMaria();
-
                     textCenter("Juan realiza clicks a una lista de fotos", 50);
                     photography.randomClicks(juan);
                     System.out.println("A juan le gustan " + photography.countLikes(juan) + " Fotografias");
@@ -107,11 +102,8 @@ public class Screen {
                     // Se realiza clicks aleatoriamente
                     photography.randomClicks(juan);
                     photography.randomClicks(maria);
-
-
+                    // se compara las listas y se muestra una con valores true y otra con valores false
                     photography.comparedPhotography(juan, maria);
-
-
                     break;
 
                 case COUNT_ORDERED:
@@ -121,9 +113,13 @@ public class Screen {
                     System.out.println("LEYENDO CONTENIDO DEL ARCHIVO");
                     System.out.println(contenido);
 
-                    System.out.println("---------------------------------------------------");
-                    System.out.println("CONTANDO Y ORDENANDO PALABRAS");
+                    System.out.println("\n---------------------------------------------------");
+                    System.out.println("ORDENANDO PALABRAS POR ORDEN ALFABETICO");
                     readingFile.countingOrdering(contenido);
+
+                    System.out.println("\n------------------------------------------------------------");
+                    System.out.println("ORDENADO DESCENDENTE DE PALABRAS POR FRECUENCIA DE APARICION");
+                    readingFile.descendingOrder();
                     break;
 
                 default:
@@ -138,7 +134,7 @@ public class Screen {
      * Mostra el menú principal de la aplicación.
      */
     private static void menuPrincipal() {
-        System.out.println("\n\nMENU PRINCIPAL");
+        System.out.println("\n\n\nMENU PRINCIPAL");
         System.out.println("1. Invertir cadena.");
         System.out.println("2. Comprobar signos de puntuacioon balanceados.");
         System.out.println("3. Contador de LIKES.");

@@ -7,12 +7,13 @@ public class ReadingFile {
 
     private File file;
     private String content;
-    private TreeMap<String, Integer> listContent; // para almacenar las palabras
+    //    private TreeMap<String, Integer> listContent; // para almacenar las palabras
+    private HashMap<String, Integer> listContent; // para almacenar las palabras
 
     // Builders
     public ReadingFile() {
         this.content = "";
-        listContent = new TreeMap<>();
+        listContent = new LinkedHashMap<>();
     }
 
     // Setter and Getter
@@ -82,7 +83,7 @@ public class ReadingFile {
 
 
     /**
-     * Este metodo contara las palabras y las guarda en la lista
+     * Este metodo contara las palabras y las guarda en la lista, para luego mostrarla por orden alfabetico
      *
      * @param string Sera la cadena de texto(palabras) para guardar y ordenar
      */
@@ -95,9 +96,29 @@ public class ReadingFile {
                 listContent.put(s, listContent.get(s) + 1);
             }
         }
-        // Mostrara la lista con el conteo de las palabras ordenados
+        //TreeMap<String, Integer> ordenadoAlfabetico = new TreeMap<>(listContent); // Tambien puede ser asi
+        TreeMap<String, Integer> ordenadoAlfabetico = new TreeMap<>();
+        ordenadoAlfabetico.putAll(listContent); // se pasa la lista HashMap a TreeMap para poder ordenar por alfabeto
+        // Mostrara la lista ordenado por orden alfabetico
+        ordenadoAlfabetico.forEach((key, value) -> {
+            System.out.format("\nPalabra: %-15s Cantidad: %-5d", key, value);
+        });
+    }
+
+
+    /**
+     * Este metodo mostrara la lista de palabras ordenados de forma descendente y por aparicion de cada palabra ingresada
+     */
+    public void descendingOrder() {
+        TreeMap<String, Integer> ordenDescendente = new TreeMap(java.util.Collections.reverseOrder());
         for (HashMap.Entry<String, Integer> s : listContent.entrySet()) {
-            System.out.println("Clave: " + s.getKey() + " - Valor: " + s.getValue());
+            ordenDescendente.put(s.getKey(), s.getValue());
+        }
+        // mostrarra la lista ordenada en orden descendente por la frecuencia de aparición de cada palabra
+        Iterator iterator = ordenDescendente.keySet().iterator();
+        while (iterator.hasNext()) {
+            Object key = iterator.next();
+            System.out.format("\nPalabra: %-15s Cantidad: %-5d", key, ordenDescendente.get(key));
         }
     }
 

@@ -8,17 +8,6 @@ public class StartApp {
 
         Screen screen =  new Screen();
         screen.inicio();
-
-
-
-
-        
-        
-
-
-
-
-
     }
 
 }
