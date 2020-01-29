@@ -3,8 +3,6 @@ package startApp;
 import startApp.view.Screen;
 
 
-
-
 public class StartApp {
     public static void main(String[] args) {
 

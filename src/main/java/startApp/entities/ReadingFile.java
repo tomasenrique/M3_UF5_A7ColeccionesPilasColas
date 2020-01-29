@@ -2,15 +2,12 @@ package startApp.entities;
 
 import java.io.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ReadingFile {
 
     private File file;
     private String content;
     private TreeMap<String, Integer> listContent; // para almacenar las palabras
-
 
     // Builders
     public ReadingFile() {
@@ -29,14 +26,21 @@ public class ReadingFile {
 
 
     // Methods
-    public String readingContent(File file) { // lectura de archivo de texto
-        this.file = file; // Recibe el archivo de texto
-        String line = null; // para almacenar linea de texto del archivo
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-        StringBuilder contentAux = new StringBuilder();
-        // carga el archivo de texto
-        try {
+
+    /**
+     * Este metodo servira para poder cargar el archivo de texto
+     *
+     * @param file Sera la ruta de ubicion del archivo de texto pasado como parametro
+     * @return Devolvera una cadena de texto de tipo string obtenida del archivo de texto
+     */
+    public String readingContent(File file) {
+        this.file = file; // Recibe el archivo de texto y obtiene la informacion.
+        String line; // Para almacenar el texto del archivo recido
+        FileReader fileReader; // Permitira leer el contenido del archivo de texto
+        BufferedReader bufferedReader; // Almacena en memoria el archivo de texto cargado
+        StringBuilder contentAux = new StringBuilder(); // Para almacenar las cadenas de texto
+
+        try {  // carga el archivo de texto
             fileReader = new FileReader(this.file);
             bufferedReader = new BufferedReader(fileReader);
             try {
@@ -53,14 +57,22 @@ public class ReadingFile {
         return this.content = contentAux.toString();
     }
 
-    // Llama a los metodos privados  deletingSemicolons y countWords
+    /**
+     * Este metodo Llama a los metodos privados deletingSemicolons y countWords
+     *
+     * @param text Sera la cadena de texto obtenida de la lectura del archivo
+     */
     public void countingOrdering(String text) {
         String contenido = deletingSemicolons(text);
         countWords(contenido);
     }
 
-
-    // limpiara el texto de puntos y comas(simbolos)
+    /**
+     * Este metodo limpiara el texto de puntos y comas(simbolos)
+     *
+     * @param text Sera la cadena de texto obtenida de la lectura del archivo
+     * @return Devolvera una cadena de texto de tipo string para poder trabajar con ella.
+     */
     private String deletingSemicolons(String text) {
         String all = "";
         all = text.replaceAll("[.,;]", ""); // eliminara los simbolos del texto
@@ -68,7 +80,12 @@ public class ReadingFile {
         return all;
     }
 
-    // contara las palabras y las guarda en la lista
+
+    /**
+     * Este metodo contara las palabras y las guarda en la lista
+     *
+     * @param string Sera la cadena de texto(palabras) para guardar y ordenar
+     */
     private void countWords(String string) {
         String[] array = string.split(" ");
         for (String s : array) {
@@ -78,7 +95,7 @@ public class ReadingFile {
                 listContent.put(s, listContent.get(s) + 1);
             }
         }
-        // Mostrara la lista con el conteo de las palabras
+        // Mostrara la lista con el conteo de las palabras ordenados
         for (HashMap.Entry<String, Integer> s : listContent.entrySet()) {
             System.out.println("Clave: " + s.getKey() + " - Valor: " + s.getValue());
         }

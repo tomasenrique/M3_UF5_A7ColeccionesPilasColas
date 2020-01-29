@@ -32,7 +32,6 @@ public class ContainerDeque {
         char character;
         StringBuilder compose = new StringBuilder();
         String string;
-
         // Decompose string on characters and save in the stack
         for (int i = 0; i < sequence.length(); i++) {
             character = sequence.charAt(i);
@@ -43,7 +42,6 @@ public class ContainerDeque {
             compose.append(letters.pop());
         }
         string = compose.toString(); // To change of StringBuilder to String
-
         return string;
     }
 
@@ -57,13 +55,11 @@ public class ContainerDeque {
     public boolean balancedPunctuationSign(String sequence) {
         char character;
         boolean balanced = false;
-
         // Decompose string on characters and save in the stack
         for (int i = 0; i < sequence.length(); i++) {
             character = sequence.charAt(i);
             letters.push(character);
         }
-
         // Check if the content of the chain is correct
         for (int i = 0; i < letters.size(); i++) {
             if (letters.getFirst().equals('}') && letters.getLast().equals('{')) balanced = true;

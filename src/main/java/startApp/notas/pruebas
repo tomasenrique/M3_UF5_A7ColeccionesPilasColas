@@ -1,0 +1,55 @@
+
+
+        Deque<Character> s =  new LinkedList<>();
+        s.push('E');
+        s.push('A');
+        s.push('S');
+        System.out.print(s.pop());
+        s.push('Y');
+        System.out.print(s.pop());
+        s.push('Q');
+        s.push('U');
+        s.push('E');
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+        s.push('S');
+        s.push('T');
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+        s.push('Y');
+        s.push('O');
+        System.out.print(s.pop());
+        s.push('N');
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+        System.out.print(s.pop());
+
+        System.out.println("\n------------------------");
+
+        Deque<Character> b =  new LinkedList<>();
+        b.add('E');
+        b.add('A');
+        b.add('S');
+        System.out.print(b.remove());
+        b.add('Y');
+        System.out.print(b.remove());
+        b.add('Q');
+        b.add('U');
+        b.add('E');
+        System.out.print(b.remove());
+        System.out.print(b.remove());
+        System.out.print(b.remove());
+        b.add('S');
+        b.add('T');
+        System.out.print(b.remove());
+        System.out.print(b.remove());
+        System.out.print(b.remove());
+        b.add('Y');
+        b.add('O');
+        System.out.print(b.remove());
+        b.add('N');
+        System.out.print(b.remove());
+        System.out.print(b.remove());
+        System.out.print(b.remove());

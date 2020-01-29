@@ -1,0 +1,80 @@
+A7 Colecciones: lista de ejercicios (final)
+
+1. En la secuencia siguiente una letra significa push y un asterisco (*) significa pop. Dada la secuencia de valores
+   devuelta por las operaciones pop si partimos de una pila (LIFO) vacía inicial.
+
+         E A S * Y * Q U E * * * S T * * * Y O * N * * *
+         Devolverá la cadena: SYEUQTSAONYE
+
+
+2. En la secuencia siguiente una letra significa añadir y un asterisco (*) significa sacar. Dada la secuencia de valores
+   devuelta por las operaciones sacar si partimos de una cola (FIFO) vacía inicial.
+
+         E A S * Y * Q U E * * * S T * * * Y O * N * * *
+         Devolverá la cadena: EASYQUESTYON
+
+3. Supongamos que hemos hecho una secuencia de operaciones que combina operaciones push y operaciones pop. Los push
+   empila los enteros 0 a 9 en orden; los pop muestran el resultado que retornan. ¿Cuál de las secuencias no se podría dar?
+       (A) 4 3 2 1 0 9 8 7 6 5
+       (B) 2 5 6 7 4 8 9 3 1 0
+       (C) 4 3 2 1 0 5 6 7 8 9
+       (D) 4 6 8 7 5 3 2 9 0 1
+
+
+
+4. Haga un programa que lea una secuencia de caracteres y la muestre en orden inverso. Utilice una pila.
+   (Deque<Character> con implementación LinkedList).
+
+
+5. Haga un programa que lea una secuencia de caracteres y determine si sus paréntesis, corchetes y llaves están bien balanceados.
+
+   Pista: los delimitadores de la izquierda haga push en la pila; los delimitadores de la derecha haga pop y compruebe si el
+   delimitador obtenido se corresponde con el delimitador esperado.
+
+    {cadena con llaves}
+    (cadena con parentesis)
+    [cadena con corchetes]
+
+
+6.1. Haga un programa que simule que Juan hace 20 veces clic al azar fotografías de códigos 1 a 30.
+6.2. Haga que se muestren todas las fotografías que le gustan a Juan.
+
+
+7.1. Las fotografías que gustan a ambos, Juan y la María.
+7.2. Las fotografías que gustan a María, pero no a Juan.
+
+
+9.	Haga un programa que lea un archivo de texto y muestre el número de veces que sale cada palabra. La salida debe estar
+    ordenada en orden alfabético de las palabras.
+
+10.	Adapte el programa anterior de forma que la salida esté ordenada en orden descendente por la frecuencia de aparición
+    de cada palabra.
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Push es poner
+ * pop es quitar
+ */
+
+
+
+TEORIA SOBRE PILAS(STACK)
+Una pila (stack en inglés) es una lista ordinal o estructura de datos en la que el modo de acceso a sus elementos es de
+tipo LIFO (del inglés Last In First Out, último en entrar, primero en salir) que permite almacenar y recuperar datos.
+Esta estructura se aplica en multitud de ocasiones en el área de informática debido a su simplicidad y ordenación implícita
+de la propia estructura.
+
+Para el manejo de los datos se cuenta con dos operaciones básicas: apilar (push), que coloca un objeto en la pila, y su
+operación inversa, retirar (o desapilar, pop), que retira el último elemento apilado.
+
